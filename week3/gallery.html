@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery - Wanderlust Voyages</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+     /* Styles for the container of the slideshow */
+  .container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Style for the slideshow images */
+  .slideshow-img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Styles for the previous and next buttons */
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .prev {
+    left: 0;
+  }
+
+  .next {
+    right: 0;
+  }
+
+  /* Style for the slide number text */
+  .numbertext {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px;
+  }
+    </style>
+</head>
+<body>
+  <div>
+    <header>
+      <h1 class="headeraH1">Wanderlust Voyages | Travel Agency</h1>
+      </header>
+
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="tasks.html">Tasks</a></li>
+          </ul>
+        </nav>
+      
+    <main class="services">
+      <h1>Gallery</h1>
+      <!-- Slide Show -->
+      <div class="container">
+        
+  <div class="mySlides">
+    <div class="numbertext">1 / 8</div>
+    <img src="images/1.png" alt="Gallery slide show" class="slideshow-img">
+  </div>
+  <div class="mySlides">
+    <div class="numbertext">2 / 8</div>
+    <img src="images/2.png" alt="Gallery slide show" class="slideshow-img">
+  </div>
+  <div class="mySlides">
+    <div class="numbertext">3 / 8</div>
+    <img src="images/3.png" alt="Gallery slide show" class="slideshow-img">
+  </div>
+  <div class="mySlides">
+    <div class="numbertext">4 / 8</div>
+    <img src="images/4.png" alt="Gallery slide show" class="slideshow-img">
+  </div>
+  <div class="mySlides">
+    <div class="numbertext">5 / 8</div>
+    <img src="images/5.png" alt="Gallery slide show" class="slideshow-img">
+  </div>
+  <div class="mySlides">
+    <div class="numbertext">6 / 8</div>
+    <img src="images/6.png" alt="Gallery slide show" class="slideshow-img">
+  </div>
+  <div class="mySlides">
+    <div class="numbertext">7 / 8</div>
+    <img src="images/7.png" alt="Gallery slide show" class="slideshow-img">
+  </div>
+  <div class="mySlides">
+    <div class="numbertext">8 / 8</div>
+    <img src="images/8.png" alt="Gallery slide show" class="slideshow-img">
+  </div>
+        <!-- Repeat this block for other images -->
+        <!-- ... -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+    </main>
+    <footer>
+      <ul>
+        <li><a href="https://www.facebook.com/">Facebook</a></li>
+        <li><a href="https://twitter.com/">Twitter</a></li>
+        <li><a href="https://www.instagram.com/">Instagram</a></li>
+      </ul>
+      <p>&copy; 2024 Wanderlust Voyages | Travel Agency. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides((slideIndex += n));
+    }
+
+    function currentSlide(n) {
+      showSlides((slideIndex = n));
+    }
+
+    function showSlides(n) {
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("numbertext");
+
+      if (n > slides.length) {
+        slideIndex = 1;
+      }
+      if (n < 1) {
+        slideIndex = slides.length;
+      }
+
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].style.display = "none";
+      }
+
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].style.display = "block";
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+

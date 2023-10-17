@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery - Wanderlust Voyages</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    #Form {
+      width: 400px;
+      margin: 20vh auto;
+      padding: 20px;
+      background-color: whitesmoke;
+      border-radius: 4px;
+      font-size: 12px;
+      text-align: center; /* Center the form contents */
+    }
+
+    .input-control {
+      margin-bottom: 10px;
+    }
+
+    button {
+      display: block;
+      margin: 0 auto; /* Center the button horizontally */
+      padding: 10px;
+      background-color: #0074d9; /* Adjust button styles as needed */
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <form id="Form" action="/">
+    <div class="input-control">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username">
+      <div class="error"></div>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    // get the form element
+    const form = document.getElementById('Form');
+    const username = document.getElementById('username');
+
+    // Event listener for the form on submit event.
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      validateInputs();
+    });
+
+    // function to display error message and apply error styles.
+    const setError = (element, message) => {
+      const inputControl = element.parentElement;
+      const errorDisplay = inputControl.querySelector('.error');
+
+      errorDisplay.innerText = message;
+      inputControl.classList.add('error');
+      inputControl.classList.remove('success');
+    }
+
+    const setSuccess = element => {
+      const inputControl = element.parentElement;
+      const errorDisplay = inputControl.querySelector('.error');
+
+      errorDisplay.innerText = '';
+      inputControl.classList.add('success');
+      inputControl.classList.remove('error');
+    }
+
+    const validateInputs = () => {
+      const usernameValue = username.value.trim();
+      if (usernameValue === '') {
+        setError(username, 'Username is required');
+      } else {
+        setSuccess(username);
+      }
+    };
+  </script>
+</body>
+</html>
