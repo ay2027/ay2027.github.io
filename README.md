@@ -1,11 +1,9 @@
 # ay2027.github.io
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>F28WP</title>
 </head>
-
 <body>
   <div class="container">
     <div class="first">
