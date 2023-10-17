@@ -1,13 +1,10 @@
 # ay2027.github.io
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>F28WP</title>
 </head>
-
 <body>
-
   <div class="container">
     <div class="first">
       <h1>F28WPlab1.github.io</h1>
@@ -26,7 +23,5 @@
        <h3><a href="https://ay2027.github.io/week3/form.html">Form</a></h3>
     </div>
   </div>
-
 </body>
-
 </html>
