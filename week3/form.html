@@ -2,88 +2,159 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Gallery - Wanderlust Voyages</title>
+  <title>Form Validation Assignment</title>
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * {
-      box-sizing: border-box;
+    /* Your provided CSS styles go here */
+
+    /* Additional styles specific to the assignment */
+    /* Style for the form container */
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
-    #Form {
-      width: 400px;
-      margin: 20vh auto;
-      padding: 20px;
-      background-color: whitesmoke;
-      border-radius: 4px;
-      font-size: 12px;
-      text-align: center; /* Center the form contents */
+    /* Style for the form heading */
+    #form h1 {
+      color: #ffffff;
+      text-align: center;
     }
 
-    .input-control {
-      margin-bottom: 10px;
-    }
-
-    button {
-      display: block;
-      margin: 0 auto; /* Center the button horizontally */
+    /* Style for the form's button */
+    #form button {
       padding: 10px;
-      background-color: #0074d9; /* Adjust button styles as needed */
+      margin-top: 10px;
+      width: 100%;
       color: white;
+      background-color: rgb(41, 57, 194);
       border: none;
       border-radius: 4px;
-      cursor: pointer;
+    }
+
+    /* Container for input fields: using flexbox for layout, column direction */
+    .input-control {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Style for input fields inside the container */
+    .input-control input {
+      border: 2px solid #f0f0f0;
+      border-radius: 4px;
+      display: block;
+      font-size: 12px;
+      padding: 10px;
+      width: 100%;
+    }
+
+    /* Remove focus outline from input fields */
+    .input-control input:focus {
+      outline: 0;
+    }
+
+    /* Style for input fields with class "success" */
+    .input-control.success input {
+      border-color: #09c372;
+    }
+
+    /* Style for input fields with class "error" */
+    .input-control.error input {
+      border-color: #ff3860;
+    }
+
+    /* Style for the error message */
+    .input-control .error {
+      color: #ff3860;
+      font-size: 9px;
+      height: 13px;
     }
   </style>
 </head>
 <body>
-  <form id="Form" action="/">
-    <div class="input-control">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username">
-      <div class="error"></div>
-    </div>
-    <button type="submit">Submit</button>
-  </form>
+  <div class="form-container">
+    <form id="form" action="/">
+      <h1>Form Validation Assignment</h1>
+      <div class="input-control">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" class="input-field">
+        <div class="error"></div>
+      </div>
+      <div class="input-control">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" class="input-field">
+        <div class="error"></div>
+      </div>
+      <div class="input-control">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" class="input-field">
+        <div class="error"></div>
+      </div>
+      <div class="input-control">
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" class="input-field">
+        <div class="error"></div>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 
   <script>
-    // get the form element
-    const form = document.getElementById('Form');
-    const username = document.getElementById('username');
+    // Your JavaScript validation code goes here
+    const form = document.getElementById('form');
+    const inputFields = document.querySelectorAll('.input-field');
 
-    // Event listener for the form on submit event.
-    form.addEventListener('submit', event => {
-      event.preventDefault();
-      validateInputs();
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      validateForm();
     });
 
-    // function to display error message and apply error styles.
-    const setError = (element, message) => {
-      const inputControl = element.parentElement;
-      const errorDisplay = inputControl.querySelector('.error');
+    inputFields.forEach((input) => {
+      input.addEventListener('blur', () => {
+        validateInput(input);
+      });
+    });
 
-      errorDisplay.innerText = message;
-      inputControl.classList.add('error');
-      inputControl.classList.remove('success');
+    function validateForm() {
+      inputFields.forEach((input) => {
+        validateInput(input);
+      });
     }
 
-    const setSuccess = element => {
-      const inputControl = element.parentElement;
-      const errorDisplay = inputControl.querySelector('.error');
+    function validateInput(input) {
+      const value = input.value.trim();
+      const parent = input.parentElement;
+      const errorDisplay = parent.querySelector('.error');
 
-      errorDisplay.innerText = '';
-      inputControl.classList.add('success');
-      inputControl.classList.remove('error');
-    }
-
-    const validateInputs = () => {
-      const usernameValue = username.value.trim();
-      if (usernameValue === '') {
-        setError(username, 'Username is required');
+      if (value === '') {
+        setError(input, errorDisplay, 'This field is required');
       } else {
-        setSuccess(username);
+        setSuccess(input, errorDisplay);
       }
-    };
+
+      if (input.type === 'email' && !validateEmail(value)) {
+        setError(input, errorDisplay, 'Please enter a valid email address');
+      }
+    }
+
+    function setError(input, errorDisplay, message) {
+      input.classList.add('error');
+      errorDisplay.innerText = message;
+    }
+
+    function setSuccess(input, errorDisplay) {
+      input.classList.remove('error');
+      errorDisplay.innerText = '';
+      input.classList.add('success');
+    }
+
+    function validateEmail(email) {
+      // You can implement email validation here
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
   </script>
 </body>
 </html>
