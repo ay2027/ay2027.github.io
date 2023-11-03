@@ -16,7 +16,14 @@
     <div class="fourth">
       <h1><a href="https://ay2027.github.io/week3/gallery.html">Week 3</a></h1>
       <p>Adding a slideshow in the gallery webpage and creating a form in a separate file</p>
+      <br>
        <h3><a href="https://ay2027.github.io/week3/form.html">Form</a></h3>
+    </div>
+    <div class="fivith">
+      <h1><a href="https://ay2027.github.io/week4/index.html">Week4</a></h1>    
+     <p>Creating a Weather Finder website with the help of OpenWeatherMap API</p>
+     <br>
+     <h3><a href="https://ay2027.github.io/Practice-with-Json-and-Ajax">Practice with JSON and AJAX</a></h3>
     </div>
   </div>
 </body>
