@@ -21,7 +21,7 @@
     <div class="five">
       <h1><a href="https://ay2027.github.io/week4/index.html">Week4</a></h1>    
      <p>Creating a Weather Finder website with the help of OpenWeatherMap API</p>
-     <h3><a href="https://ay2027.github.io/Practice-with-Json-and-Ajax">Practice with JSON and AJAX</a></h3>
+     <h3><a href="https://ay2027.github.io/Practice">Practice with JSON and AJAX</a></h3>
     </div>
   </div>
 </body>
